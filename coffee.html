@@ -9,6 +9,10 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <link href="static/coffee.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -16,7 +20,7 @@
         <h1>Coffee Shop</h1>
         <br>
 
-        <img id="coffee_image" src="LOLWUT" alt="make this image work" height="300" width="200">
+        <img id="coffee_image" src="LOLWUT" alt="coffee_pot" height="300" width="200">
 
         <h3 id="message">Click The Image To Order Coffee</h3>
 
@@ -46,24 +50,28 @@
 <script>
     "use strict";
 
-    var myImage = document.getElementById("coffee_image");
-    var myRevenueMessage = document.getElementById("revenue");
+    const myImage = $('#coffee_image');
+    const myRevenueMessage = $('#revenue');
 
-    myImage.setAttribute("src", "static/coffee_beans.jpg");
 
-    myImage.addEventListener("click", makeCoffee);
+
+    myImage.attr('src', 'static/coffee_beans.jpg');
+
+    
 
     function makeCoffee() {
-         myImage.src = "static/coffee_machine.jpg";
+         myImage.attr('src', 'static/coffee_machine.jpg');
 
          setTimeout(function() {
-             myImage.setAttribute("src", "static/coffee_mug.jpg");
+             myImage.attr('src', 'static/coffee_mug.jpg');
          }, 1500);
 
          setTimeout(function() {
-             myImage.setAttribute("src", "static/coffee_beans.jpg");
+             myImage.attr('src', 'static/coffee_beans.jpg');
          }, 4000);
-    }
+        }
+    myImage.on('click', makeCoffee);
+    
 
 </script>
 
